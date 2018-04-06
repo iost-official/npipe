@@ -527,7 +527,7 @@ func createPipe(address string, first bool) (syscall.Handle, error) {
 	if err != nil {
 		return 0, err
 	}
-	mode := uint32(pipe_access_duplex | syscall.FILE_FLAG_OVERLAPPED)
+	mode := uint32(pipe_access_duplex | syscall.FILE_FLAG_OVERLAPPED | write_dac)
 	if first {
 		mode |= file_flag_first_pipe_instance
 	}
